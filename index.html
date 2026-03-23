@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SneakerheadSzzz Sweet 16 Bracket</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lilita+One&family=Righteous&family=Titan+One&family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:#000;color:#fff;font-family:'Fredoka One',cursive;min-height:100vh;}
+.hdr{background:linear-gradient(180deg,#1a0800,#000);padding:30px 16px 22px;text-align:center;border-bottom:4px solid #FF6B00;}
+.logo{font-family:'Lilita One',cursive;font-size:clamp(26px,6vw,62px);line-height:.9;}
+.Lr{color:#E8001D}.Lo{color:#FF6B00}.Ly{color:#FFD700}.Lg{color:#4CAF50}.Lt{color:#00BCD4}.Lb{color:#2196F3}.Lp{color:#9C27B0}
+.byznk{font-family:'Righteous',cursive;font-size:14px;color:rgba(255,255,255,.35);letter-spacing:8px;margin-top:6px;}
+.rbr{height:5px;background:linear-gradient(90deg,#E8001D,#FF6B00,#FFD700,#4CAF50,#00BCD4,#2196F3,#9C27B0);margin:12px auto 0;border-radius:3px;max-width:500px;}
+.ctitle{font-family:'Titan One',cursive;font-size:clamp(13px,2.8vw,26px);color:#FFD700;letter-spacing:2px;margin-top:12px;}
+.pot{background:linear-gradient(135deg,rgba(255,107,0,.14),rgba(255,215,0,.08));border:2px solid rgba(255,107,0,.38);border-radius:14px;padding:16px 22px;text-align:center;margin:16px auto;max-width:420px;}
+.pot-l{font-family:'Righteous',cursive;font-size:13px;color:rgba(255,255,255,.42);letter-spacing:6px;}
+.pot-n{font-family:'Lilita One',cursive;font-size:clamp(32px,6vw,60px);color:#FFD700;line-height:1;}
+.pot-s{display:flex;justify-content:center;gap:16px;margin-top:6px;flex-wrap:wrap;}
+.pot-p{font-family:'Righteous',cursive;font-size:12px;color:rgba(255,255,255,.5);}
+.pot-p span{color:#FFD700;}
+.tabs{display:flex;justify-content:center;gap:6px;padding:14px 12px;flex-wrap:wrap;background:#000;}
+.tab{font-family:'Fredoka One',cursive;font-size:14px;padding:9px 16px;border-radius:30px;border:2px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);color:rgba(255,255,255,.55);cursor:pointer;}
+.tab.on{background:#FF6B00;border-color:#FF6B00;color:#000;}
+.sec{display:none;padding:0 12px 40px;max-width:820px;margin:0 auto;}
+.sec.on{display:block;}
+.card{background:#0d0d0d;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;margin-bottom:16px;}
+.card-t{font-family:'Titan One',cursive;font-size:18px;color:#FF6B00;letter-spacing:2px;margin-bottom:16px;}
+.row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+.grp{flex:1;min-width:180px;}
+.grp label{display:block;font-family:'Righteous',cursive;font-size:11px;color:rgba(255,255,255,.45);letter-spacing:2px;margin-bottom:5px;}
+.grp input,.grp select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 12px;color:#fff;font-family:'Fredoka One',cursive;font-size:14px;outline:none;}
+.grp input:focus,.grp select:focus{border-color:#FF6B00;}
+.grp select option{background:#111;}
+.mb{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;margin-bottom:10px;}
+.ml{font-family:'Righteous',cursive;font-size:10px;color:rgba(255,255,255,.25);letter-spacing:3px;margin-bottom:10px;}
+.mopts{display:flex;flex-direction:column;gap:7px;}
+.tr{display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 12px;border-radius:10px;border:2px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);transition:all .18s;user-select:none;position:relative;}
+.tr:hover{border-color:rgba(255,107,0,.35);background:rgba(255,107,0,.05);}
+.tr.on{border-color:#FF6B00;background:rgba(255,107,0,.11);box-shadow:0 0 12px rgba(255,107,0,.18);}
+.tr input{position:absolute;opacity:0;width:0;height:0;}
+.sdot{width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s;}
+.sdots{font-family:'Lilita One',cursive;font-size:14px;color:rgba(255,255,255,.2);transition:all .18s;line-height:1;}
+.tr.on .sdot{border-color:#FF6B00;background:rgba(255,107,0,.22);box-shadow:0 0 8px rgba(255,107,0,.4);}
+.tr.on .sdots{color:#FF6B00;text-shadow:0 0 8px rgba(255,107,0,.7);}
+.tnm{font-family:'Fredoka One',cursive;font-size:16px;color:rgba(255,255,255,.65);flex:1;}
+.tr.on .tnm{color:#fff;}
+.stag{font-family:'Righteous',cursive;font-size:10px;color:rgba(255,255,255,.3);background:rgba(255,255,255,.06);padding:2px 7px;border-radius:10px;letter-spacing:1px;flex-shrink:0;}
+.tr.on .stag{background:rgba(255,107,0,.2);color:#FF6B00;}
+.vsr{display:flex;align-items:center;gap:8px;margin:3px 0;}
+.vsr::before,.vsr::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+.vsr span{font-family:'Righteous',cursive;font-size:10px;color:rgba(255,255,255,.2);letter-spacing:3px;}
+.rl{display:inline-block;font-family:'Lilita One',cursive;font-size:13px;letter-spacing:4px;padding:5px 14px;border-radius:20px;margin-bottom:8px;margin-top:4px;}
+.rl-e{background:rgba(232,0,29,.18);color:#E8001D;border:1px solid #E8001D;}
+.rl-w{background:rgba(33,150,243,.18);color:#2196F3;border:1px solid #2196F3;}
+.rl-s{background:rgba(76,175,80,.18);color:#4CAF50;border:1px solid #4CAF50;}
+.rl-m{background:rgba(255,215,0,.12);color:#FFD700;border:1px solid #FFD700;}
+.rtt{font-family:'Titan One',cursive;font-size:16px;color:#00BCD4;letter-spacing:3px;margin:20px 0 10px;padding-bottom:6px;border-bottom:2px solid rgba(0,188,212,.25);}
+.subbtn{width:100%;border:none;border-radius:14px;padding:0;background:linear-gradient(135deg,#E8001D,#FF6B00,#FFD700,#4CAF50,#00BCD4);cursor:pointer;margin-top:20px;box-shadow:0 5px 24px rgba(255,107,0,.4);}
+.subbtn:disabled{opacity:.35;cursor:not-allowed;}
+.subinn{display:flex;align-items:center;justify-content:center;gap:14px;padding:18px 24px;background:linear-gradient(135deg,rgba(0,0,0,.3),rgba(0,0,0,.1));border-radius:14px;}
+.subdot{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.5);background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.subdots{font-family:'Lilita One',cursive;font-size:18px;color:#fff;line-height:1;}
+.subtxt{font-family:'Titan One',cursive;font-size:20px;color:#fff;letter-spacing:3px;text-shadow:0 2px 6px rgba(0,0,0,.5);}
+.pay-ack{background:rgba(232,0,29,.08);border:2px solid rgba(232,0,29,.5);border-radius:14px;padding:18px 20px;margin:20px 0 0;transition:all .2s;cursor:pointer;}
+.pay-ack.acked{background:rgba(76,175,80,.08);border-color:rgba(76,175,80,.6);}
+.pay-ack-inner{display:flex;align-items:flex-start;gap:14px;}
+.pay-ack-box{width:28px;height:28px;border-radius:7px;border:2px solid rgba(232,0,29,.7);background:rgba(232,0,29,.1);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:17px;transition:all .2s;margin-top:1px;}
+.pay-ack.acked .pay-ack-box{border-color:#4CAF50;background:rgba(76,175,80,.25);}
+.pay-ack-txt{font-family:'Righteous',cursive;font-size:12px;line-height:1.75;color:rgba(255,255,255,.75);}
+.pay-ack-txt strong{font-size:14px;color:#fff;display:block;margin-bottom:4px;}
+.lbt{width:100%;border-collapse:collapse;margin-top:12px;}
+.lbt th{font-family:'Righteous',cursive;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.35);padding:9px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.07);}
+.lbt td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.04);font-size:14px;vertical-align:middle;}
+.rk1 td{background:rgba(255,215,0,.06);}.rk2 td{background:rgba(192,192,192,.04);}.rk3 td{background:rgba(205,127,50,.04);}
+.rkb{font-family:'Lilita One',cursive;font-size:20px;}
+.rk1 .rkb{color:#FFD700;}.rk2 .rkb{color:#C0C0C0;}.rk3 .rkb{color:#CD7F32;}
+.ptag{font-size:11px;font-family:'Righteous',cursive;letter-spacing:2px;padding:3px 9px;border-radius:20px;}
+.pt1{background:rgba(255,215,0,.15);color:#FFD700;}.pt2{background:rgba(192,192,192,.15);color:#C0C0C0;}.pt3{background:rgba(205,127,50,.15);color:#CD7F32;}
+.badge-pend{font-family:'Righteous',cursive;font-size:10px;letter-spacing:1px;padding:3px 9px;border-radius:20px;background:rgba(255,107,0,.2);color:#FF6B00;border:1px solid rgba(255,107,0,.5);white-space:nowrap;}
+.badge-conf{font-family:'Righteous',cursive;font-size:10px;letter-spacing:1px;padding:3px 9px;border-radius:20px;background:rgba(76,175,80,.2);color:#4CAF50;border:1px solid rgba(76,175,80,.5);white-space:nowrap;}
+.badge-rej{font-family:'Righteous',cursive;font-size:10px;letter-spacing:1px;padding:3px 9px;border-radius:20px;background:rgba(232,0,29,.2);color:#E8001D;border:1px solid rgba(232,0,29,.5);white-space:nowrap;}
+.sumbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.sumcard{flex:1;min-width:90px;background:#0d0d0d;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 16px;text-align:center;}
+.sumcard-n{font-family:'Lilita One',cursive;font-size:26px;line-height:1;}
+.sumcard-l{font-family:'Righteous',cursive;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:2px;margin-top:4px;}
+.sc-total{color:#FFD700;}.sc-pend{color:#FF6B00;}.sc-conf{color:#4CAF50;}.sc-rej{color:#E8001D;}
+.gc{background:#0d0d0d;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.gst{font-family:'Righteous',cursive;font-size:10px;letter-spacing:2px;padding:3px 9px;border-radius:20px;}
+.gs-live{background:rgba(232,0,29,.2);color:#E8001D;animation:bl 1.5s infinite;}
+.gs-fin{background:rgba(255,255,255,.07);color:rgba(255,255,255,.45);}
+.gs-up{background:rgba(0,188,212,.14);color:#00BCD4;}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.4}}
+.gts{flex:1;min-width:180px;}
+.gt{display:flex;align-items:center;justify-content:space-between;padding:3px 0;font-size:14px;}
+.gt.win{color:#FFD700;}
+.gsc{font-family:'Lilita One',cursive;font-size:20px;min-width:30px;text-align:right;}
+.gseed{font-size:10px;color:rgba(255,255,255,.35);font-family:'Righteous',cursive;min-width:20px;}
+.alog{background:#0d0d0d;border:1px solid rgba(255,107,0,.3);border-radius:14px;padding:24px;max-width:360px;margin:0 auto;text-align:center;}
+.at{font-family:'Titan One',cursive;font-size:20px;color:#FF6B00;margin-bottom:18px;letter-spacing:2px;}
+.ainp{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,107,0,.3);border-radius:10px;padding:12px;color:#fff;font-family:'Fredoka One',cursive;font-size:16px;text-align:center;outline:none;margin-bottom:12px;letter-spacing:4px;}
+.apnl{display:none;}.apnl.on{display:block;}
+.agr{background:#0d0d0d;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 16px;margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.agl{flex:1;min-width:140px;font-size:13px;color:rgba(255,255,255,.75);}
+.asel{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:7px 10px;color:#fff;font-family:'Fredoka One',cursive;font-size:13px;outline:none;cursor:pointer;min-width:140px;}
+.asel option{background:#111;}
+.setb{background:#4CAF50;border:none;border-radius:7px;padding:8px 16px;font-family:'Fredoka One',cursive;font-size:13px;color:#000;cursor:pointer;}
+.rcb{width:100%;background:linear-gradient(135deg,#00BCD4,#2196F3);border:none;border-radius:10px;padding:14px;font-family:'Titan One',cursive;font-size:16px;color:#fff;cursor:pointer;letter-spacing:3px;margin-top:16px;}
+.upb{background:#FF6B00;border:none;border-radius:9px;padding:10px 20px;font-family:'Fredoka One',cursive;font-size:15px;color:#000;cursor:pointer;margin-top:8px;}
+.spinp{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 12px;color:#fff;font-family:'Fredoka One',cursive;font-size:16px;outline:none;}
+.asbtn{width:100%;border:none;border-radius:10px;padding:0;background:linear-gradient(135deg,#FF6B00,#E8001D);cursor:pointer;}
+.asinn{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;background:rgba(0,0,0,.2);border-radius:10px;}
+.asdot{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,215,0,.6);background:rgba(255,215,0,.15);display:flex;align-items:center;justify-content:center;}
+.asds{font-family:'Lilita One',cursive;font-size:18px;color:#FFD700;line-height:1;}
+.astxt{font-family:'Titan One',cursive;font-size:18px;color:#fff;letter-spacing:3px;}
+.rc{background:#0d0d0d;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px;margin-bottom:16px;}
+.rct{font-family:'Titan One',cursive;font-size:18px;color:#FF6B00;letter-spacing:2px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,107,0,.25);}
+.rtx{font-family:'Righteous',cursive;font-size:14px;line-height:1.75;color:rgba(255,255,255,.72);}
+.rtx strong{color:#fff;}.hl{color:#FFD700;}
+.ptt{width:100%;border-collapse:collapse;margin:12px 0;}
+.ptt th{background:rgba(255,107,0,.14);color:#FF6B00;font-family:'Righteous',cursive;letter-spacing:2px;padding:9px 12px;text-align:left;font-size:11px;}
+.ptt td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.05);font-family:'Righteous',cursive;font-size:13px;color:rgba(255,255,255,.75);}
+.ptt td strong{color:#FFD700;font-size:16px;}
+.shdr{font-family:'Titan One',cursive;font-size:18px;letter-spacing:3px;color:#FF6B00;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid rgba(255,107,0,.28);}
+.empty{text-align:center;padding:30px 16px;color:rgba(255,255,255,.28);font-family:'Righteous',cursive;font-size:15px;letter-spacing:2px;}
+.spin{text-align:center;padding:24px;color:#00BCD4;font-family:'Righteous',cursive;letter-spacing:3px;animation:bl 1s infinite;}
+.alrt{padding:12px 16px;border-radius:10px;margin-bottom:12px;font-size:14px;display:none;}
+.alrt.ok{background:rgba(76,175,80,.15);border:1px solid rgba(76,175,80,.4);color:#4CAF50;}
+.alrt.err{background:rgba(232,0,29,.15);border:1px solid rgba(232,0,29,.4);color:#E8001D;}
+.alrt.show{display:block;}
+.ect{font-family:'Righteous',cursive;font-size:12px;color:rgba(255,255,255,.35);letter-spacing:3px;margin-bottom:12px;}
+.foot{text-align:center;padding:24px 16px;border-top:1px solid rgba(255,255,255,.05);font-family:'Righteous',cursive;font-size:11px;color:rgba(255,255,255,.22);letter-spacing:3px;background:#000;}
+.ftabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;}
+.ftab{font-family:'Righteous',cursive;font-size:11px;padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);color:rgba(255,255,255,.5);cursor:pointer;letter-spacing:2px;}
+.ftab.on{background:#FF6B00;border-color:#FF6B00;color:#000;}
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.88);z-index:999;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.on{display:flex;}
+.modal{background:#0d0d0d;border:2px solid #4CAF50;border-radius:18px;padding:28px 24px;max-width:420px;width:100%;text-align:center;}
+.modal-t{font-family:'Titan One',cursive;font-size:22px;color:#4CAF50;letter-spacing:2px;margin-bottom:12px;}
+.modal-body{font-family:'Righteous',cursive;font-size:13px;color:rgba(255,255,255,.8);line-height:1.8;margin-bottom:16px;}
+.modal-pay{background:rgba(33,150,243,.1);border:1px solid rgba(33,150,243,.4);border-radius:12px;padding:14px;margin:14px 0;}
+.modal-pay-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-family:'Fredoka One',cursive;font-size:15px;}
+.modal-pay-row span:first-child{color:rgba(255,255,255,.5);font-size:13px;}
+.modal-pay-row span:last-child{color:#FFD700;}
+.modal-memo{background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.4);border-radius:10px;padding:12px;margin-top:10px;font-family:'Righteous',cursive;font-size:12px;color:#FF6B00;line-height:1.6;}
+.modal-close{background:linear-gradient(135deg,#4CAF50,#00BCD4);border:none;border-radius:10px;padding:13px 30px;font-family:'Titan One',cursive;font-size:16px;color:#fff;cursor:pointer;letter-spacing:2px;width:100%;margin-top:16px;}
+.lookup-box{background:#0d0d0d;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;margin-bottom:16px;}
+.lookup-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;}
+.lookup-inp{flex:1;min-width:200px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Fredoka One',cursive;font-size:16px;outline:none;}
+.lookup-inp:focus{border-color:#FF6B00;}
+.lookup-btn{background:linear-gradient(135deg,#FF6B00,#E8001D);border:none;border-radius:10px;padding:12px 22px;font-family:'Titan One',cursive;font-size:15px;color:#fff;cursor:pointer;letter-spacing:2px;white-space:nowrap;}
+.picks-hdr{background:linear-gradient(135deg,rgba(255,107,0,.14),rgba(255,215,0,.07));border:2px solid rgba(255,107,0,.38);border-radius:14px;padding:18px 20px;margin-bottom:14px;}
+.picks-name{font-family:'Lilita One',cursive;font-size:28px;color:#fff;margin-bottom:8px;}
+.picks-meta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:10px;}
+.picks-score{font-family:'Lilita One',cursive;font-size:40px;color:#00BCD4;line-height:1;}
+.picks-score-lbl{font-family:'Righteous',cursive;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:3px;}
+.picks-rank{font-family:'Titan One',cursive;font-size:20px;color:#FFD700;}
+.prog-wrap{background:rgba(255,255,255,.06);border-radius:20px;height:8px;overflow:hidden;margin:6px 0 3px;}
+.prog-bar{height:100%;border-radius:20px;background:linear-gradient(90deg,#FF6B00,#FFD700);transition:width .5s;}
+.prog-lbl{font-family:'Righteous',cursive;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:2px;}
+.round-sec{margin-bottom:18px;}
+.round-lbl{font-family:'Titan One',cursive;font-size:14px;letter-spacing:3px;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.07);}
+.pick-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;margin-bottom:5px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);}
+.pick-row.correct{border-color:rgba(76,175,80,.5);background:rgba(76,175,80,.07);}
+.pick-row.wrong{border-color:rgba(232,0,29,.4);background:rgba(232,0,29,.06);}
+.pick-icon{font-size:18px;flex-shrink:0;width:24px;text-align:center;}
+.pick-team{font-family:'Fredoka One',cursive;font-size:15px;flex:1;}
+.pick-row.correct .pick-team{color:#4CAF50;}
+.pick-row.wrong .pick-team{color:#E8001D;text-decoration:line-through;opacity:.8;}
+.pick-row.pending .pick-team{color:rgba(255,255,255,.55);}
+.pick-pts{font-family:'Righteous',cursive;font-size:11px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.4);white-space:nowrap;flex-shrink:0;}
+.pick-row.correct .pick-pts{background:rgba(76,175,80,.2);color:#4CAF50;}
+.pick-actual{font-family:'Righteous',cursive;font-size:11px;color:#FF6B00;flex-shrink:0;}
+.entry-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.etab{font-family:'Righteous',cursive;font-size:11px;padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);color:rgba(255,255,255,.5);cursor:pointer;letter-spacing:1px;}
+.etab.on{background:#00BCD4;border-color:#00BCD4;color:#000;}
+.tb-box{background:rgba(255,215,0,.05);border:1px solid rgba(255,215,0,.2);border-radius:12px;padding:14px;margin-top:4px;}
+
+/* ══════════════════════════════════════════
+   REVIEWS SECTION STYLES
+══════════════════════════════════════════ */
+.znk-reviews-wrap{background:#0a0a0a;padding:60px 0 80px;position:relative;overflow:hidden;border-top:4px solid #FF6B00;}
+.znk-reviews-wrap::after{content:'THE WORD';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',cursive;font-size:clamp(80px,15vw,200px);color:transparent;-webkit-text-stroke:1px rgba(255,107,0,0.05);white-space:nowrap;pointer-events:none;letter-spacing:10px;z-index:0;}
+.znk-rev-inner{max-width:820px;margin:0 auto;padding:0 12px;position:relative;z-index:1;}
+.znk-sec-label{font-family:'Righteous',cursive;font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#FF6B00;margin-bottom:8px;}
+.znk-sec-title{font-family:'Titan One',cursive;font-size:clamp(36px,7vw,72px);line-height:.95;color:#F5EDD6;letter-spacing:3px;margin-bottom:8px;}
+.znk-sec-title span{color:#FF6B00;}
+.znk-sec-sub{font-family:'Righteous',cursive;font-size:14px;color:#555;letter-spacing:2px;margin-bottom:44px;}
+.znk-rat-sum{display:flex;align-items:center;gap:24px;background:#111;border:1px solid #1E1E1E;border-left:4px solid #FF6B00;padding:22px 28px;margin-bottom:40px;flex-wrap:wrap;}
+.znk-big-score{font-family:'Lilita One',cursive;font-size:72px;line-height:1;color:#FF6B00;min-width:72px;}
+.znk-stars-row{display:flex;gap:4px;margin-bottom:6px;}
+.znk-star{font-size:18px;color:#FF6B00;}
+.znk-star.empty{color:#2A2A2A;}
+.znk-tot-count{font-family:'Righteous',cursive;font-size:11px;color:#444;letter-spacing:3px;text-transform:uppercase;}
+.znk-rat-bars{flex:2;min-width:160px;}
+.znk-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-family:'Righteous',cursive;font-size:11px;color:#555;letter-spacing:1px;}
+.znk-bar-lbl{width:30px;text-align:right;}
+.znk-bar-track{flex:1;height:3px;background:#1A1A1A;border-radius:2px;overflow:hidden;}
+.znk-bar-fill{height:100%;background:linear-gradient(90deg,#FF6B00,#FFD700);border-radius:2px;}
+.znk-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:48px;}
+.znk-card{background:#0d0d0d;border:1px solid #1A1A1A;padding:22px 18px 18px;transition:transform .2s,border-color .2s,box-shadow .2s;}
+.znk-card:hover{transform:translateY(-3px);border-color:#FF6B00;box-shadow:0 10px 32px rgba(255,107,0,.1);}
+.znk-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+.znk-card-stars{display:flex;gap:3px;}
+.znk-card-star{font-size:13px;color:#FF6B00;}
+.znk-card-star.empty{color:#222;}
+.znk-verified{font-family:'Righteous',cursive;font-size:9px;letter-spacing:2px;color:#FFD700;text-transform:uppercase;background:rgba(255,215,0,.08);padding:3px 7px;border:1px solid rgba(255,215,0,.2);}
+.znk-card-text{font-family:'Righteous',cursive;font-size:13px;line-height:1.65;color:#999;margin-bottom:16px;font-style:italic;}
+.znk-card-text::before{content:'\201C';font-family:'Lilita One',cursive;font-size:40px;color:#FF6B00;line-height:0.5;display:block;margin-bottom:8px;}
+.znk-card-footer{display:flex;align-items:center;gap:10px;border-top:1px solid #1A1A1A;padding-top:14px;}
+.znk-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#FF6B00,#FFD700);display:flex;align-items:center;justify-content:center;font-family:'Lilita One',cursive;font-size:13px;color:#000;flex-shrink:0;}
+.znk-rev-name{font-family:'Fredoka One',cursive;font-size:14px;color:#F5EDD6;text-transform:uppercase;}
+.znk-rev-date{font-family:'Righteous',cursive;font-size:11px;color:#333;letter-spacing:1px;}
+.znk-divider{display:flex;align-items:center;gap:16px;margin-bottom:40px;}
+.znk-div-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,#1E1E1E,transparent);}
+.znk-div-txt{font-family:'Titan One',cursive;font-size:18px;letter-spacing:5px;color:#FF6B00;}
+.znk-form-wrap{background:#0d0d0d;border:1px solid #1A1A1A;border-top:3px solid #FF6B00;padding:32px 28px 36px;}
+.znk-form-title{font-family:'Titan One',cursive;font-size:28px;letter-spacing:3px;color:#F5EDD6;margin-bottom:4px;}
+.znk-form-sub{font-family:'Righteous',cursive;font-size:12px;color:#444;letter-spacing:2px;margin-bottom:24px;}
+.znk-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:520px){.znk-form-row{grid-template-columns:1fr;}.znk-rat-sum{flex-direction:column;align-items:flex-start;}.znk-form-wrap{padding:22px 16px 28px;}.znk-cards-grid{grid-template-columns:1fr;}}
+.znk-field-wrap{display:flex;flex-direction:column;gap:5px;}
+.znk-field-lbl{font-family:'Righteous',cursive;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#555;}
+.znk-inp,.znk-ta{background:#060606;border:1px solid #1E1E1E;color:#F5EDD6;font-family:'Fredoka One',cursive;font-size:15px;padding:10px 14px;outline:none;transition:border-color .2s,box-shadow .2s;width:100%;}
+.znk-inp:focus,.znk-ta:focus{border-color:#FF6B00;box-shadow:0 0 0 2px rgba(255,107,0,.08);}
+.znk-ta{resize:vertical;min-height:100px;margin-bottom:12px;font-family:'Righteous',cursive;font-size:13px;line-height:1.6;}
+.znk-star-lbl{font-family:'Righteous',cursive;font-size:10px;color:#444;letter-spacing:3px;text-transform:uppercase;margin-bottom:7px;}
+.znk-star-picker{display:flex;gap:5px;margin-bottom:20px;}
+.znk-star-pick{font-size:28px;cursor:pointer;color:#1E1E1E;transition:color .15s,transform .15s;user-select:none;line-height:1;}
+.znk-star-pick:hover,.znk-star-pick.active{color:#FF6B00;transform:scale(1.2);}
+.znk-sub-btn{background:#FF6B00;color:#000;border:none;font-family:'Titan One',cursive;font-size:18px;letter-spacing:4px;padding:14px 40px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;}
+.znk-sub-btn:hover{background:#FFD700;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,107,0,.3);}
+.znk-success{display:none;background:rgba(255,107,0,.08);border:1px solid rgba(255,107,0,.3);padding:16px 20px;margin-top:16px;font-family:'Righteous',cursive;font-size:14px;color:#FF6B00;letter-spacing:1px;}
+.znk-success.show{display:block;}
+</style>
+</head>
+<body>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="modal-t">✅ BRACKET SUBMITTED!</div>
+    <div class="modal-body">Your picks are saved — but your entry is <strong style="color:#FF6B00;">PENDING</strong> until payment is received. Send your fee now to lock in your spot:</div>
+    <div class="modal-pay">
+      <div class="modal-pay-row"><span>PayPal</span><span>@keifer73</span></div>
+      <div class="modal-pay-row"><span>Apple Cash</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e1838d94848a989589948f858493a1898e958c80888dcf828e8c">[email&#160;protected]</a></span></div>
+      <div class="modal-pay-row"><span>Amount Due</span><span id="modalAmt">$3</span></div>
+    </div>
+    <div class="modal-memo">⚠️ <strong>PUT YOUR FULL NAME IN THE MEMO.</strong> No name = no confirmation. Unpaid entries will be removed before the tournament starts.</div>
+    <button class="modal-close" onclick="document.getElementById('successModal').classList.remove('on')">GOT IT — I'LL PAY NOW 🏀</button>
+  </div>
+</div>
+
+<div class="hdr">
+  <div class="logo"><span class="Lr">S</span><span class="Lo">neak</span><span class="Ly">er</span><span class="Lg">hea</span><span class="Lt">d</span><span class="Lp">S</span><span class="Lr">z</span><span class="Lo">z</span><span class="Ly">z</span><span class="Lg">!</span></div>
+  <div class="byznk">BY ZNK</div>
+  <div class="rbr"></div>
+  <div class="ctitle">🏀 INAUGURAL SWEET 16 BRACKET CHALLENGE 🏀</div>
+
+  <!-- JS PRIZE BANNER -->
+  <div style="background:linear-gradient(135deg,rgba(232,0,29,.15),rgba(255,107,0,.1),rgba(255,215,0,.1));border:2px solid rgba(255,215,0,.5);border-radius:14px;padding:16px 20px;margin:14px auto;max-width:500px;text-align:center;animation:bl 2s ease-in-out infinite;">
+    <div style="font-family:'Righteous',cursive;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:5px;margin-bottom:6px;">🔥 BONUS PRIZE — WINNER TAKES ALL</div>
+    <div style="font-family:'Lilita One',cursive;font-size:clamp(18px,4vw,28px);color:#FFD700;line-height:1.1;margin-bottom:8px;">WIN CASH + YOUR CHOICE OF HEAT 👟</div>
+    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:8px;">
+      <div style="background:rgba(0,0,0,.4);border:1px solid rgba(255,215,0,.3);border-radius:10px;padding:8px 14px;">
+        <div style="font-family:'Titan One',cursive;font-size:13px;color:#FF6B00;letter-spacing:1px;">OPTION 1</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:15px;color:#fff;">AJ 6 Retro Infrared</div>
+        <div style="font-family:'Righteous',cursive;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:2px;">SIZE 7</div>
+      </div>
+      <div style="font-family:'Lilita One',cursive;font-size:22px;color:rgba(255,215,0,.4);align-self:center;">OR</div>
+      <div style="background:rgba(0,0,0,.4);border:1px solid rgba(255,215,0,.3);border-radius:10px;padding:8px 14px;">
+        <div style="font-family:'Titan One',cursive;font-size:13px;color:#FF6B00;letter-spacing:1px;">OPTION 2</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:15px;color:#fff;">AJ 3 Retro Pure Money</div>
+        <div style="font-family:'Righteous',cursive;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:2px;">SIZE 10.5</div>
+      </div>
+    </div>
+    <div style="font-family:'Righteous',cursive;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:2px;">1ST PLACE WINS CASH + PICK YOUR PAIR · ONLY $3 TO ENTER</div>
+  </div>
+
+  <div class="pot">
+    <div class="pot-l">CURRENT POT</div>
+    <div class="pot-n" id="potN">$0</div>
+    <div class="pot-s">
+      <div class="pot-p">🥇 1st: <span id="p1">$0</span></div>
+      <div class="pot-p">🥈 2nd: <span id="p2">$0</span></div>
+      <div class="pot-p">🥉 3rd: <span id="p3">$0</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="showTab('bracket',this)">🏀 My Bracket</button>
+  <button class="tab" onclick="showTab('mypicks',this)">🔍 My Picks</button>
+  <button class="tab" onclick="showTab('leaderboard',this)">🏆 Leaderboard</button>
+  <button class="tab" onclick="showTab('live',this)">📺 Live</button>
+  <button class="tab" onclick="showTab('rules',this)">📋 Rules</button>
+  <button class="tab" onclick="showTab('reviews',this)">⭐ Reviews</button>
+  <button class="tab" onclick="showTab('admin',this)">🔒 Admin</button>
+</div>
+
+<!-- BRACKET -->
+<div class="sec on" id="st-bracket">
+  <div id="bAlrt" class="alrt"></div>
+  <div class="card">
+    <div class="card-t">YOUR INFO</div>
+    <div style="background:rgba(33,150,243,.1);border:2px solid rgba(33,150,243,.4);border-radius:12px;padding:16px 18px;margin-bottom:16px;text-align:center;">
+      <div style="font-family:'Titan One',cursive;font-size:16px;color:#2196F3;letter-spacing:2px;margin-bottom:10px;">💳 ENTRY FEE — $3 PER ENTRY</div>
+      <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
+        <div><div style="font-family:'Lilita One',cursive;font-size:20px;color:#fff;">PayPal</div><div style="font-family:'Fredoka One',cursive;font-size:18px;color:#FFD700;">@keifer73</div></div>
+        <div style="width:1px;background:rgba(255,255,255,.15);"></div>
+        <div><div style="font-family:'Lilita One',cursive;font-size:20px;color:#fff;">Apple Cash</div><div style="font-family:'Fredoka One',cursive;font-size:14px;color:#FFD700;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="81e3edf4e4eaf8f5e9f4efe5e4f3c1e9eef5ece0e8edafe2eeec">[email&#160;protected]</a></div></div>
+      </div>
+      <div style="font-family:'Righteous',cursive;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:2px;margin-top:10px;">SEND AFTER SUBMITTING — INCLUDE YOUR FULL NAME IN THE MEMO</div>
+    </div>
+    <div class="row">
+      <div class="grp"><label>FULL NAME</label><input type="text" id="eName" placeholder="Your name"></div>
+      <div class="grp"><label>EMAIL</label><input type="email" id="eEmail" placeholder="your@email.com"></div>
+    </div>
+    <div class="row">
+      <div class="grp"><label>ORDER / CONFIRMATION #</label><input type="text" id="eOrder" placeholder="From your SneakerheadSzzz.com purchase"></div>
+      <div class="grp"><label>PAYPAL @HANDLE OR EMAIL (FOR PRIZE PAYOUT)</label><input type="text" id="ePay" placeholder="Your PayPal for winnings"></div>
+    </div>
+    <div class="row">
+      <div class="grp">
+        <label>ENTRIES PURCHASED</label>
+        <select id="eCount">
+          <option value="" disabled selected>Select entries purchased</option>
+          <optgroup label="APPAREL & ACCESSORIES">
+            <option value="1">1 Entry — $3</option><option value="2">2 Entries — $6</option><option value="3">3 Entries — $9</option><option value="4">4 Entries — $12</option><option value="5">5 Entries — $15</option>
+          </optgroup>
+          <optgroup label="FOOTWEAR">
+            <option value="1">1 Entry — $3</option><option value="2">2 Entries — $6</option><option value="3">3 Entries — $9</option><option value="4">4 Entries — $12</option><option value="5">5 Entries — $15</option><option value="6">6 Entries — $18</option><option value="7">7 Entries — $21</option><option value="8">8 Entries — $24</option><option value="9">9 Entries — $27</option><option value="10">10 Entries — $30</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-t">YOUR PICKS</div>
+    <p style="font-family:'Righteous',cursive;font-size:12px;color:rgba(255,255,255,.38);letter-spacing:1px;margin-bottom:18px;">Pick your winners for every round through the Championship.</p>
+    <div style="font-family:'Titan One',cursive;font-size:15px;color:#E8001D;letter-spacing:3px;margin-bottom:10px;">🏀 SWEET 16 — 8 matchups</div>
+    <div class="rl rl-e">EAST</div>
+    <div id="s16-e1"></div><div id="s16-e2"></div>
+    <div class="rl rl-w" style="margin-top:12px;">WEST</div>
+    <div id="s16-w1"></div><div id="s16-w2"></div>
+    <div class="rl rl-s" style="margin-top:12px;">SOUTH</div>
+    <div id="s16-s1"></div><div id="s16-s2"></div>
+    <div class="rl rl-m" style="margin-top:12px;">MIDWEST</div>
+    <div id="s16-m1"></div><div id="s16-m2"></div>
+    <div class="rtt">⚡ ELITE 8 — 4 matchups</div>
+    <div id="e8-east"></div><div id="e8-west"></div><div id="e8-south"></div><div id="e8-midwest"></div>
+    <div class="rtt">🔥 FINAL FOUR — 2 matchups</div>
+    <div id="ff-1"></div><div id="ff-2"></div>
+    <div class="rtt">🏆 CHAMPIONSHIP — 1 matchup</div>
+    <div id="champ"></div>
+    <div class="mb" style="border-color:rgba(255,215,0,.25);background:rgba(255,215,0,.04);margin-top:10px;">
+      <div class="ml" style="color:#FFD700;">🔢 TIEBREAKER — COMBINED FINAL SCORE OF CHAMPIONSHIP GAME</div>
+      <input type="number" id="tiebreaker" placeholder="e.g. 142" min="0" max="300" style="width:100%;background:rgba(255,215,0,.08);border:2px solid rgba(255,215,0,.35);border-radius:10px;padding:12px 14px;color:#FFD700;font-family:'Fredoka One',cursive;font-size:18px;outline:none;text-align:center;">
+      <p style="font-family:'Righteous',cursive;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:2px;margin-top:8px;">Tie goes to whoever is closest to actual combined final score. Can go over.</p>
+    </div>
+  </div>
+  <div class="pay-ack" id="payAck" onclick="toggleAck()">
+    <div class="pay-ack-inner">
+      <div class="pay-ack-box" id="payAckBox">✓</div>
+      <div class="pay-ack-txt">
+        <strong>⚠️ TAP TO CONFIRM — READ BEFORE SUBMITTING</strong>
+        I understand my bracket is <strong style="color:#FF6B00;">PENDING</strong> until payment is received. I will send $<span id="ackAmt">3</span> to <strong>PayPal @keifer73</strong> or <strong>Apple Cash <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef8d839a8a84969b879a818b8a9daf87809b828e8683c18c8082">[email&#160;protected]</a></strong> and will include my <strong>full name in the memo</strong>. Unpaid entries will be removed.
+      </div>
+    </div>
+  </div>
+  <button class="subbtn" id="subBtn" onclick="doSubmit()" disabled>
+    <div class="subinn">
+      <div class="subdot"><span class="subdots">S</span></div>
+      <div class="subtxt" id="subTxt">CONFIRM ABOVE TO SUBMIT</div>
+      <div class="subdot"><span class="subdots">S</span></div>
+    </div>
+  </button>
+</div>
+
+<!-- MY PICKS -->
+<div class="sec" id="st-mypicks">
+  <div class="shdr">🔍 TRACK MY PICKS</div>
+  <div class="lookup-box">
+    <div style="font-family:'Righteous',cursive;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:3px;margin-bottom:12px;">ENTER YOUR NAME OR EMAIL TO SEE HOW YOUR BRACKET IS DOING</div>
+    <div class="lookup-row">
+      <input class="lookup-inp" id="lookupVal" placeholder="Your name or email..." onkeydown="if(event.key==='Enter')doLookup()">
+      <button class="lookup-btn" onclick="doLookup()">FIND MY PICKS 🏀</button>
+    </div>
+  </div>
+  <div id="picksResult"></div>
+</div>
+
+<!-- LEADERBOARD -->
+<div class="sec" id="st-leaderboard">
+  <div class="shdr">🏆 LEADERBOARD</div>
+  <div class="ect" id="ect">0 BRACKETS SUBMITTED</div>
+  <div id="lb"><div class="empty">No brackets yet — be first! 🏀</div></div>
+</div>
+
+<!-- LIVE -->
+<div class="sec" id="st-live">
+  <div class="shdr">📺 LIVE SCORES</div>
+  <div id="live"><div class="spin">LOADING...</div></div>
+</div>
+
+<!-- RULES -->
+<div class="sec" id="st-rules">
+  <div class="shdr">📋 OFFICIAL CONTEST RULES</div>
+  <div class="rc" style="border-color:rgba(255,215,0,.3);background:rgba(255,215,0,.04);">
+    <div class="rtx" style="color:rgba(255,255,255,.6);font-size:13px;"><em>These are the official contest rules. Core requirements — purchase eligibility, entry pricing, scoring, and payouts — will not change.</em></div>
+  </div>
+  <div class="rc" style="border-color:rgba(232,0,29,.4);background:rgba(232,0,29,.06);">
+    <div class="rct" style="color:#E8001D;">⏰ SUBMISSION DEADLINE</div>
+    <div class="rtx"><p><strong class="hl">All brackets must be submitted by 11:45 AM EST on Thursday, March 27, 2026.</strong></p><br><p>No entries will be accepted after this time. No exceptions.</p></div>
+  </div>
+  <div class="rc"><div class="rct">ELIGIBILITY</div><div class="rtx"><p><strong class="hl">A purchase from SneakerheadSzzz.com is required to enter. No purchase, no entry.</strong></p></div></div>
+  <div class="rc">
+    <div class="rct">ENTRY DETAILS</div>
+    <div class="rtx">
+      <p><strong>1 Apparel or Accessory Purchase:</strong></p><p class="hl" style="margin:8px 0 16px;">→ Up to 5 entries @ $3 per entry</p>
+      <p><strong>1 Shoe Purchase:</strong></p><p class="hl" style="margin:8px 0;">→ Up to 10 entries @ $3 per entry</p>
+    </div>
+  </div>
+  <div class="rc">
+    <div class="rct">HOW TO ENTER</div>
+    <div class="rtx">
+      <p><strong>Step 1:</strong> Purchase any product at SneakerheadSzzz.com.</p><br>
+      <p><strong>Step 2:</strong> Click the <strong class="hl">Sweet 16 Bracket</strong> button on our site.</p><br>
+      <p><strong>Step 3:</strong> Enter your name, email, order confirmation number, and your bracket picks.</p><br>
+      <p><strong>Step 4:</strong> Send your entry fees via <strong class="hl">PayPal @keifer73</strong> or <strong class="hl">Apple Cash <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="57353b22323c2e233f2239333225173f38233a363e3b7934383a">[email&#160;protected]</a></strong>. <strong style="color:#E8001D;">Include your full name in the memo or your entry cannot be confirmed.</strong></p><br>
+      <p><strong>Step 5:</strong> Your entry shows as <strong class="hl">PENDING</strong> until payment is verified. Unconfirmed entries are ineligible to win.</p>
+    </div>
+  </div>
+  <div class="rc">
+    <div class="rct">SCORING</div>
+    <table class="ptt">
+      <tr><th>ROUND</th><th>POINTS PER CORRECT PICK</th></tr>
+      <tr><td>🏀 Sweet 16</td><td><strong>5 points</strong></td></tr>
+      <tr><td>⚡ Elite 8</td><td><strong>8 points</strong></td></tr>
+      <tr><td>🔥 Final Four</td><td><strong>10 points</strong></td></tr>
+      <tr><td>🏆 Championship</td><td><strong>15 points</strong></td></tr>
+    </table>
+  </div>
+  <div class="rc"><div class="rct">TIEBREAKER</div><div class="rtx"><p>In the event of a tie, the participant whose predicted combined final score of the Championship game is closest to the actual combined score wins 1st place. Can go over.</p></div></div>
+  <div class="rc">
+    <div class="rct">PAYOUTS</div>
+    <div class="rtx"><p><strong class="hl">100% of all entry fees go directly into the prize pot. SneakerheadSzzz keeps nothing.</strong></p></div>
+    <table class="ptt" style="margin-top:12px;">
+      <tr><th>PLACE</th><th>PAYOUT</th></tr>
+      <tr><td>🥇 1st Place</td><td><strong>70%</strong> of pot</td></tr>
+      <tr><td>🥈 2nd Place</td><td><strong>20%</strong> of pot</td></tr>
+      <tr><td>🥉 3rd Place</td><td><strong>10%</strong> of pot</td></tr>
+    </table>
+    <div class="rtx" style="margin-top:12px;"><p>Prizes paid via <strong class="hl">PayPal</strong> within 7 business days. W-9 required for prizes over $600.</p></div>
+  </div>
+  <div class="rc">
+    <div class="rct">LEGAL</div>
+    <div class="rtx">
+      <p>Open to US residents <strong>18 years of age or older</strong>. Void where prohibited by law.</p><br>
+      <p><strong class="hl">Florida residents:</strong> Product purchases and entry fees are completely separate transactions. Purchase of a product confers eligibility only and does not constitute payment for a chance to win.</p><br>
+      <p>This contest is not affiliated with, sponsored by, or endorsed by the NCAA or any university. All decisions by SneakerheadSzzz by ZNK are final.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     REVIEWS TAB
+══════════════════════════════════════════ -->
+<div class="sec" id="st-reviews">
+  <section class="znk-reviews-wrap">
+    <div class="znk-rev-inner">
+
+      <p class="znk-sec-label">★ Community Reviews</p>
+      <h2 class="znk-sec-title">THE WORD<br>ON <span>THE STREET</span></h2>
+      <p class="znk-sec-sub">Real talk from the SneakerheadSzzz fam</p>
+
+      <div class="znk-rat-sum">
+        <div class="znk-big-score" id="znk-avg-score">5.0</div>
+        <div>
+          <div class="znk-stars-row" id="znk-sum-stars"></div>
+          <div class="znk-tot-count" id="znk-rev-count">0 Reviews</div>
+        </div>
+        <div class="znk-rat-bars" id="znk-bar-chart"></div>
+      </div>
+
+      <div class="znk-cards-grid" id="znk-cards"></div>
+
+      <div class="znk-divider">
+        <div class="znk-div-line"></div>
+        <div class="znk-div-txt">DROP YOUR REVIEW</div>
+        <div class="znk-div-line"></div>
+      </div>
+
+      <div class="znk-form-wrap">
+        <h3 class="znk-form-title">Leave a Review</h3>
+        <p class="znk-form-sub">How was your experience with SneakerheadSzzz?</p>
+
+        <div class="znk-form-row">
+          <div class="znk-field-wrap">
+            <label class="znk-field-lbl">Your Name</label>
+            <input class="znk-inp" id="znk-name" type="text" placeholder="e.g. Jordan K." maxlength="40">
+          </div>
+          <div class="znk-field-wrap">
+            <label class="znk-field-lbl">Location (optional)</label>
+            <input class="znk-inp" id="znk-loc" type="text" placeholder="e.g. Atlanta, GA" maxlength="40">
+          </div>
+        </div>
+
+        <div class="znk-field-wrap" style="margin-bottom:12px;">
+          <p class="znk-star-lbl">Your Rating</p>
+          <div class="znk-star-picker" id="znk-star-picker">
+            <span class="znk-star-pick" data-val="1">★</span>
+            <span class="znk-star-pick" data-val="2">★</span>
+            <span class="znk-star-pick" data-val="3">★</span>
+            <span class="znk-star-pick" data-val="4">★</span>
+            <span class="znk-star-pick" data-val="5">★</span>
+          </div>
+        </div>
+
+        <div class="znk-field-wrap">
+          <label class="znk-field-lbl">Your Review</label>
+          <textarea class="znk-ta" id="znk-rev-text" placeholder="Tell the community about your experience..." maxlength="500"></textarea>
+        </div>
+
+        <button class="znk-sub-btn" onclick="znkSubmit()">POST REVIEW 🔥</button>
+        <div class="znk-success" id="znk-ok">🔥 Review submitted! Thanks for the love.</div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ADMIN -->
+<div class="sec" id="st-admin">
+  <div class="shdr">🔒 ADMIN PANEL</div>
+  <div class="alog" id="alog">
+    <div class="at">ADMIN ACCESS</div>
+    <input type="password" class="ainp" id="apass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="asbtn" onclick="doLogin()"><div class="asinn"><div class="asdot"><span class="asds">S</span></div><div class="astxt">ENTER</div><div class="asdot"><span class="asds">S</span></div></div></button>
+  </div>
+  <div class="apnl" id="apnl">
+    <div class="sumbar" id="sumbar"></div>
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-t">ENTRY MANAGEMENT</div>
+      <div class="ftabs">
+        <button class="ftab on" onclick="filterEntries('all',this)">ALL</button>
+        <button class="ftab" onclick="filterEntries('pending',this)">⏳ PENDING</button>
+        <button class="ftab" onclick="filterEntries('confirmed',this)">✅ CONFIRMED</button>
+        <button class="ftab" onclick="filterEntries('rejected',this)">❌ REJECTED</button>
+      </div>
+      <div id="adminEntries"><div class="empty">No entries yet.</div></div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-t">UPDATE POT</div>
+      <p style="font-family:'Righteous',cursive;font-size:11px;color:rgba(255,255,255,.35);margin-bottom:12px;">Enter the total confirmed fees collected. Updates the prize display for everyone.</p>
+      <div class="grp"><label>TOTAL CONFIRMED ENTRY FEES ($)</label><input type="number" class="spinp" id="apot" placeholder="0.00"></div>
+      <button class="upb" onclick="doUpdPot()">UPDATE POT</button>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-t">CHAMPIONSHIP FINAL SCORE (TIEBREAKER)</div>
+      <div class="grp"><label>ACTUAL COMBINED FINAL SCORE</label><input type="number" class="spinp" id="actualScore" placeholder="e.g. 142"></div>
+      <button class="upb" onclick="doSetActualScore()">SET SCORE & RECALCULATE</button>
+    </div>
+    <div class="card">
+      <div class="card-t">SET SWEET 16 TEAMS</div>
+      <p style="font-family:'Righteous',cursive;font-size:11px;color:rgba(255,255,255,.35);margin-bottom:16px;">4 teams per region. Game 1 = teams 1&2. Game 2 = teams 3&4.</p>
+      <div id="ateams"></div>
+      <button class="subbtn" onclick="doSaveTeams()" style="margin-top:12px;"><div class="subinn"><div class="subdot"><span class="subdots">S</span></div><div class="subtxt">SAVE TEAMS</div><div class="subdot"><span class="subdots">S</span></div></div></button>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <div class="card-t">ENTER GAME RESULTS</div>
+      <p style="font-family:'Righteous',cursive;font-size:11px;color:rgba(255,255,255,.35);margin-bottom:16px;">15 total games. Set winners as they finish.</p>
+      <div id="agames"></div>
+      <button class="rcb" onclick="doRecalc()">🔄 RECALCULATE ALL SCORES</button>
+    </div>
+  </div>
+</div>
+
+<div class="foot">SneakerheadSzzz by ZNK &nbsp;•&nbsp; SneakerheadSzzz.com &nbsp;•&nbsp; Florida &nbsp;•&nbsp; 2026</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const SK='shz26v4',AP='ZNK2026';
+let ackChecked=false,currentFilter='all';
+
+function load(){try{return JSON.parse(localStorage.getItem(SK))||def();}catch(e){return def();}}
+function save(d){localStorage.setItem(SK,JSON.stringify(d));}
+function def(){return{pot:0,actualScore:0,teams:{
+  east:[{s:1,n:'Duke'},{s:5,n:"St. John's"},{s:2,n:'UConn'},{s:3,n:'Michigan State'}],
+  west:[{s:2,n:'Purdue'},{s:11,n:'Texas'},{s:1,n:'Arizona'},{s:4,n:'Arkansas'}],
+  south:[{s:2,n:'Houston'},{s:3,n:'Illinois'},{s:4,n:'Nebraska'},{s:9,n:'Iowa'}],
+  midwest:[{s:1,n:'Michigan'},{s:4,n:'Alabama'},{s:2,n:'Iowa State'},{s:6,n:'Tennessee'}]
+},results:{s16_e1:null,s16_e2:null,s16_w1:null,s16_w2:null,s16_s1:null,s16_s2:null,s16_m1:null,s16_m2:null,e8_east:null,e8_west:null,e8_south:null,e8_midwest:null,ff1:null,ff2:null,champ:null},entries:[]};}
+let D=load();
+
+function mu(key,t1,t2,lbl){return'<div class="mb"><div class="ml">'+lbl+'</div><div class="mopts"><label class="tr" id="tr_'+key+'_0" onclick="pick(\''+key+'\',0)"><input type="radio" name="'+key+'" value="'+t1.n+'"><div class="sdot"><span class="sdots">S</span></div><span class="tnm">'+t1.n+'</span><span class="stag">SEED '+t1.s+'</span></label><div class="vsr"><span>VS</span></div><label class="tr" id="tr_'+key+'_1" onclick="pick(\''+key+'\',1)"><input type="radio" name="'+key+'" value="'+t2.n+'"><div class="sdot"><span class="sdots">S</span></div><span class="tnm">'+t2.n+'</span><span class="stag">SEED '+t2.s+'</span></label></div></div>';}
+function pick(key,idx){[0,1].forEach(i=>{var el=document.getElementById('tr_'+key+'_'+i);if(el)el.classList.toggle('on',i===idx);});var r=document.querySelectorAll('input[name="'+key+'"]');if(r[idx])r[idx].checked=true;}
+
+function renderBracket(){
+  var T=D.teams;
+  document.getElementById('s16-e1').innerHTML=mu('s16_e1',T.east[0],T.east[1],'EAST GAME 1');
+  document.getElementById('s16-e2').innerHTML=mu('s16_e2',T.east[2],T.east[3],'EAST GAME 2');
+  document.getElementById('s16-w1').innerHTML=mu('s16_w1',T.west[0],T.west[1],'WEST GAME 1');
+  document.getElementById('s16-w2').innerHTML=mu('s16_w2',T.west[2],T.west[3],'WEST GAME 2');
+  document.getElementById('s16-s1').innerHTML=mu('s16_s1',T.south[0],T.south[1],'SOUTH GAME 1');
+  document.getElementById('s16-s2').innerHTML=mu('s16_s2',T.south[2],T.south[3],'SOUTH GAME 2');
+  document.getElementById('s16-m1').innerHTML=mu('s16_m1',T.midwest[0],T.midwest[1],'MIDWEST GAME 1');
+  document.getElementById('s16-m2').innerHTML=mu('s16_m2',T.midwest[2],T.midwest[3],'MIDWEST GAME 2');
+  document.getElementById('e8-east').innerHTML=mu('e8_east',{s:'?',n:'East G1 Winner'},{s:'?',n:'East G2 Winner'},'EAST ELITE 8');
+  document.getElementById('e8-west').innerHTML=mu('e8_west',{s:'?',n:'West G1 Winner'},{s:'?',n:'West G2 Winner'},'WEST ELITE 8');
+  document.getElementById('e8-south').innerHTML=mu('e8_south',{s:'?',n:'South G1 Winner'},{s:'?',n:'South G2 Winner'},'SOUTH ELITE 8');
+  document.getElementById('e8-midwest').innerHTML=mu('e8_midwest',{s:'?',n:'Midwest G1 Winner'},{s:'?',n:'Midwest G2 Winner'},'MIDWEST ELITE 8');
+  document.getElementById('ff-1').innerHTML=mu('ff1',{s:'?',n:'East Winner'},{s:'?',n:'West Winner'},'FINAL FOUR GAME 1');
+  document.getElementById('ff-2').innerHTML=mu('ff2',{s:'?',n:'South Winner'},{s:'?',n:'Midwest Winner'},'FINAL FOUR GAME 2');
+  document.getElementById('champ').innerHTML=mu('champ',{s:'?',n:'FF Game 1 Winner'},{s:'?',n:'FF Game 2 Winner'},'CHAMPIONSHIP');
+}
+
+function getRad(n){var el=document.querySelector('input[name="'+n+'"]:checked');return el?el.value:'';}
+function getPicks(){return{s16_e1:getRad('s16_e1'),s16_e2:getRad('s16_e2'),s16_w1:getRad('s16_w1'),s16_w2:getRad('s16_w2'),s16_s1:getRad('s16_s1'),s16_s2:getRad('s16_s2'),s16_m1:getRad('s16_m1'),s16_m2:getRad('s16_m2'),e8_east:getRad('e8_east'),e8_west:getRad('e8_west'),e8_south:getRad('e8_south'),e8_midwest:getRad('e8_midwest'),ff1:getRad('ff1'),ff2:getRad('ff2'),champ:getRad('champ')};}
+
+function toggleAck(){
+  ackChecked=!ackChecked;
+  document.getElementById('payAck').classList.toggle('acked',ackChecked);
+  document.getElementById('subBtn').disabled=!ackChecked;
+  document.getElementById('subTxt').textContent=ackChecked?'SUBMIT MY BRACKET':'CONFIRM ABOVE TO SUBMIT';
+}
+document.addEventListener('change',function(e){
+  if(e.target&&e.target.id==='eCount'){document.getElementById('ackAmt').textContent=(parseInt(e.target.value)||1)*3;}
+});
+
+function doSubmit(){
+  if(!ackChecked){showAlert('bAlrt','err','Please confirm the payment acknowledgement first!');return;}
+  var name=document.getElementById('eName').value.trim(),
+      email=document.getElementById('eEmail').value.trim(),
+      order=document.getElementById('eOrder').value.trim(),
+      pay=document.getElementById('ePay').value.trim(),
+      count=parseInt(document.getElementById('eCount').value)||1,
+      picks=getPicks(),tb=parseInt(document.getElementById('tiebreaker').value)||0;
+  if(!name||!email||!order){showAlert('bAlrt','err','Please fill in your name, email and order number!');return;}
+  if(!picks.champ){showAlert('bAlrt','err','Please pick your National Champion!');return;}
+  if(!tb){showAlert('bAlrt','err','Please enter your tiebreaker score!');return;}
+  var exc=D.entries.filter(function(e){return e.email.toLowerCase()===email.toLowerCase();}).length;
+  if(exc>=12){showAlert('bAlrt','err','Maximum 12 entries per person.');return;}
+  var toAdd=Math.min(count,12-exc);
+  for(var i=0;i<toAdd;i++){
+    D.entries.push({id:Date.now()+i,name:name,email:email,order:order,pay:pay,num:exc+i+1,picks:Object.assign({},picks),tiebreaker:tb,score:0,status:'pending',at:new Date().toISOString()});
+  }
+  save(D);updPot();renderLB();
+  document.getElementById('modalAmt').textContent='$'+(toAdd*3);
+  document.getElementById('successModal').classList.add('on');
+  document.getElementById('eName').value='';document.getElementById('eEmail').value='';
+  document.getElementById('eOrder').value='';document.getElementById('tiebreaker').value='';
+  document.getElementById('eCount').selectedIndex=0;
+  ackChecked=false;
+  document.getElementById('payAck').classList.remove('acked');
+  document.getElementById('subBtn').disabled=true;
+  document.getElementById('subTxt').textContent='CONFIRM ABOVE TO SUBMIT';
+  renderBracket();
+}
+
+function scoreEntry(e){
+  var s=0;
+  ['s16_e1','s16_e2','s16_w1','s16_w2','s16_s1','s16_s2','s16_m1','s16_m2'].forEach(function(k){if(D.results[k]&&e.picks[k]&&D.results[k]===e.picks[k])s+=5;});
+  ['e8_east','e8_west','e8_south','e8_midwest'].forEach(function(k){if(D.results[k]&&e.picks[k]&&D.results[k]===e.picks[k])s+=8;});
+  ['ff1','ff2'].forEach(function(k){if(D.results[k]&&e.picks[k]&&D.results[k]===e.picks[k])s+=10;});
+  if(D.results.champ&&e.picks.champ&&D.results.champ===e.picks.champ)s+=15;
+  return s;
+}
+
+function doLookup(){
+  var val=document.getElementById('lookupVal').value.trim().toLowerCase();
+  if(!val){document.getElementById('picksResult').innerHTML='<div class="empty">Enter your name or email above.</div>';return;}
+  var matches=D.entries.filter(function(e){return e.name.toLowerCase().includes(val)||e.email.toLowerCase().includes(val);});
+  if(!matches.length){document.getElementById('picksResult').innerHTML='<div class="empty">No entries found for "'+document.getElementById('lookupVal').value.trim()+'".<br>Check spelling and try again.</div>';return;}
+  var groups={};
+  matches.forEach(function(e){if(!groups[e.email])groups[e.email]=[];groups[e.email].push(e);});
+  var html='';
+  Object.values(groups).forEach(function(entries){
+    if(entries.length>1){
+      var gid='g'+Date.now()+Math.random().toString(36).substr(2,4);
+      html+='<div class="entry-tabs" id="etabs_'+gid+'">';
+      entries.forEach(function(e,i){html+='<button class="etab'+(i===0?' on':'')+'" onclick="switchEtab(\''+gid+'\','+i+','+entries.length+')">ENTRY #'+e.num+'</button>';});
+      html+='</div>';
+      entries.forEach(function(e,i){html+='<div id="epanel_'+gid+'_'+i+'" style="'+(i>0?'display:none':'')+'">';html+=buildPicksCard(e);html+='</div>';});
+    } else {html+=buildPicksCard(entries[0]);}
+  });
+  document.getElementById('picksResult').innerHTML=html;
+}
+
+function switchEtab(gid,idx,total){
+  for(var i=0;i<total;i++){document.getElementById('epanel_'+gid+'_'+i).style.display=i===idx?'':'none';}
+  document.getElementById('etabs_'+gid).querySelectorAll('.etab').forEach(function(b,i){b.classList.toggle('on',i===idx);});
+}
+
+function buildPicksCard(e){
+  var score=scoreEntry(e);
+  var maxPts=119;
+  var pct=maxPts>0?Math.round((score/maxPts)*100):0;
+  var confirmedEntries=D.entries.filter(function(x){return x.status==='confirmed';});
+  var ranked=confirmedEntries.map(function(x){return{id:x.id,score:scoreEntry(x)};}).sort(function(a,b){return b.score-a.score;});
+  var rankIdx=ranked.findIndex(function(x){return x.id===e.id;});
+  var rankStr=e.status==='confirmed'&&rankIdx>=0?'#'+(rankIdx+1)+' OF '+ranked.length:'N/A';
+  var statusBadge=e.status==='confirmed'?'<span class="badge-conf">✅ CONFIRMED</span>':e.status==='rejected'?'<span class="badge-rej">❌ REJECTED</span>':'<span class="badge-pend">⏳ PAYMENT PENDING</span>';
+  var h='<div class="picks-hdr">';
+  h+='<div class="picks-name">'+e.name+'</div>';
+  h+='<div class="picks-meta">';
+  h+='<div><div class="picks-score">'+score+'</div><div class="picks-score-lbl">POINTS</div></div>';
+  if(e.status==='confirmed'){h+='<div><div class="picks-rank">'+rankStr+'</div><div class="picks-score-lbl">CURRENT RANK</div></div>';}
+  h+=statusBadge+'</div>';
+  h+='<div class="prog-wrap"><div class="prog-bar" style="width:'+pct+'%"></div></div>';
+  h+='<div class="prog-lbl">'+score+' / '+maxPts+' MAX POSSIBLE POINTS ('+pct+'%)</div></div>';
+  var rounds=[
+    {lbl:'🏀 SWEET 16',color:'#E8001D',games:[{key:'s16_e1',lbl:'East Game 1',pts:5},{key:'s16_e2',lbl:'East Game 2',pts:5},{key:'s16_w1',lbl:'West Game 1',pts:5},{key:'s16_w2',lbl:'West Game 2',pts:5},{key:'s16_s1',lbl:'South Game 1',pts:5},{key:'s16_s2',lbl:'South Game 2',pts:5},{key:'s16_m1',lbl:'Midwest Game 1',pts:5},{key:'s16_m2',lbl:'Midwest Game 2',pts:5}]},
+    {lbl:'⚡ ELITE 8',color:'#FF6B00',games:[{key:'e8_east',lbl:'East',pts:8},{key:'e8_west',lbl:'West',pts:8},{key:'e8_south',lbl:'South',pts:8},{key:'e8_midwest',lbl:'Midwest',pts:8}]},
+    {lbl:'🔥 FINAL FOUR',color:'#FFD700',games:[{key:'ff1',lbl:'Game 1',pts:10},{key:'ff2',lbl:'Game 2',pts:10}]},
+    {lbl:'🏆 CHAMPIONSHIP',color:'#00BCD4',games:[{key:'champ',lbl:'Champion',pts:15}]}
+  ];
+  rounds.forEach(function(round){
+    h+='<div class="round-sec"><div class="round-lbl" style="color:'+round.color+';">'+round.lbl+'</div>';
+    round.games.forEach(function(g){
+      var myPick=e.picks[g.key],actual=D.results[g.key],cls='pending',icon='⬜',actualTxt='';
+      if(actual&&myPick){if(myPick===actual){cls='correct';icon='✅';}else{cls='wrong';icon='❌';actualTxt=actual;}}
+      h+='<div class="pick-row '+cls+'"><span class="pick-icon">'+icon+'</span><span class="pick-team">'+(myPick||'<span style="opacity:.35;">No pick</span>')+'</span>';
+      if(cls==='wrong')h+='<span class="pick-actual">→ '+actualTxt+'</span>';
+      h+='<span class="pick-pts">'+(cls==='correct'?'+':'')+g.pts+' pts</span></div>';
+    });
+    h+='</div>';
+  });
+  h+='<div class="tb-box"><div style="font-family:\'Righteous\',cursive;font-size:10px;color:rgba(255,215,0,.6);letter-spacing:3px;margin-bottom:6px;">🔢 TIEBREAKER</div>';
+  h+='<div style="font-family:\'Fredoka One\',cursive;font-size:16px;color:#FFD700;">Your prediction: '+(e.tiebreaker||'—')+'</div>';
+  if(D.actualScore){var diff=Math.abs((e.tiebreaker||0)-D.actualScore);h+='<div style="font-family:\'Righteous\',cursive;font-size:12px;color:rgba(255,255,255,.5);margin-top:6px;">Actual: '+D.actualScore+' &nbsp;|&nbsp; Off by: '+diff+'</div>';}
+  h+='</div>';
+  return h;
+}
+
+function renderLB(){
+  var confirmed=D.entries.filter(function(e){return e.status==='confirmed';});
+  var sc=confirmed.map(function(e){return Object.assign({},e,{score:scoreEntry(e)});}).sort(function(a,b){return b.score-a.score;});
+  var total=D.entries.length,cc=confirmed.length;
+  document.getElementById('ect').textContent=total+' BRACKET'+(total!==1?'S':'')+' SUBMITTED — '+cc+' CONFIRMED';
+  if(!sc.length){document.getElementById('lb').innerHTML='<div class="empty">No confirmed entries yet. Entries appear here once payment is verified. 🏀</div>';return;}
+  var pot=D.pot;
+  var h='<table class="lbt"><tr><th>RANK</th><th>NAME</th><th>POINTS</th><th>TIEBREAKER</th><th>PRIZE</th><th>PAYOUT TO</th></tr>';
+  sc.forEach(function(e,i){
+    var r=i+1,med=r===1?'🥇':r===2?'🥈':r===3?'🥉':r,prz='';
+    if(r===1&&pot>0)prz='<span class="ptag pt1">$'+Math.floor(pot*.7).toLocaleString()+'</span>';
+    else if(r===2&&pot>0)prz='<span class="ptag pt2">$'+Math.floor(pot*.2).toLocaleString()+'</span>';
+    else if(r===3&&pot>0)prz='<span class="ptag pt3">$'+Math.floor(pot*.1).toLocaleString()+'</span>';
+    h+='<tr class="'+(r<=3?'rk'+r:'')+'"><td><span class="rkb">'+med+'</span></td><td>'+e.name+'</td><td style="font-family:\'Lilita One\',cursive;font-size:20px;color:#00BCD4;">'+e.score+'</td><td style="font-family:\'Righteous\',cursive;font-size:13px;color:rgba(255,255,255,.5);">'+(e.tiebreaker||'—')+'</td><td>'+prz+'</td><td><span style="font-size:12px;color:rgba(255,255,255,.5);">'+(r<=3?e.pay||'—':'')+'</span></td></tr>';
+  });
+  document.getElementById('lb').innerHTML=h+'</table>';
+}
+
+function updPot(){var p=D.pot;document.getElementById('potN').textContent='$'+p.toLocaleString();document.getElementById('p1').textContent='$'+Math.floor(p*.7).toLocaleString();document.getElementById('p2').textContent='$'+Math.floor(p*.2).toLocaleString();document.getElementById('p3').textContent='$'+Math.floor(p*.1).toLocaleString();}
+
+async function fetchLive(){
+  var c=document.getElementById('live');
+  try{
+    var res=await fetch('https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?groups=100&limit=64');
+    var json=await res.json(),evs=json.events||[];
+    if(!evs.length){c.innerHTML='<div class="empty">No games right now. Check back during tournament! 🏀</div>';return;}
+    var h='';
+    evs.forEach(function(ev){
+      var comp=ev.competitions[0],st=ev.status.type,
+          home=comp.competitors.find(function(t){return t.homeAway==='home';}),
+          away=comp.competitors.find(function(t){return t.homeAway==='away';}),badge='';
+      if(st.name==='STATUS_IN_PROGRESS')badge='<span class="gst gs-live">🔴 LIVE</span>';
+      else if(st.completed)badge='<span class="gst gs-fin">FINAL</span>';
+      else badge='<span class="gst gs-up">'+(st.shortDetail||'UPCOMING')+'</span>';
+      h+='<div class="gc"><div class="gts"><div class="gt '+(away&&away.winner?'win':'')+'"><span class="gseed">'+(away&&away.curatedRank?away.curatedRank.current:'')+'</span><span style="flex:1">'+(away&&away.team?away.team.displayName:'TBD')+'</span><span class="gsc">'+(away?away.score||'':'')+'</span></div><div class="gt '+(home&&home.winner?'win':'')+'"><span class="gseed">'+(home&&home.curatedRank?home.curatedRank.current:'')+'</span><span style="flex:1">'+(home&&home.team?home.team.displayName:'TBD')+'</span><span class="gsc">'+(home?home.score||'':'')+'</span></div></div>'+badge+'</div>';
+    });
+    c.innerHTML=h;
+  }catch(e){c.innerHTML='<div class="empty">Live scores unavailable. Check back soon! 🏀</div>';}
+}
+
+function doLogin(){
+  if(document.getElementById('apass').value===AP){
+    document.getElementById('alog').style.display='none';
+    document.getElementById('apnl').classList.add('on');
+    renderAdmTeams();renderAdmGames();
+    document.getElementById('apot').value=D.pot;
+    if(D.actualScore)document.getElementById('actualScore').value=D.actualScore;
+    renderAdminEntries();renderSummary();
+  }else{alert('Wrong password!');}
+}
+
+function renderSummary(){
+  var total=D.entries.length,pend=D.entries.filter(function(e){return e.status==='pending';}).length,conf=D.entries.filter(function(e){return e.status==='confirmed';}).length,rej=D.entries.filter(function(e){return e.status==='rejected';}).length;
+  document.getElementById('sumbar').innerHTML='<div class="sumcard"><div class="sumcard-n sc-total">'+total+'</div><div class="sumcard-l">TOTAL</div></div><div class="sumcard"><div class="sumcard-n sc-pend">'+pend+'</div><div class="sumcard-l">PENDING</div></div><div class="sumcard"><div class="sumcard-n sc-conf">'+conf+'</div><div class="sumcard-l">CONFIRMED</div></div><div class="sumcard"><div class="sumcard-n sc-rej">'+rej+'</div><div class="sumcard-l">REJECTED</div></div><div class="sumcard"><div class="sumcard-n sc-conf">$'+(conf*3)+'</div><div class="sumcard-l">CONFIRMED $</div></div>';
+}
+
+function filterEntries(f,btn){currentFilter=f;document.querySelectorAll('.ftab').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');renderAdminEntries();}
+
+function setEntryStatus(id,status){
+  D.entries=D.entries.map(function(e){return e.id===id?Object.assign({},e,{status:status}):e;});
+  save(D);renderAdminEntries();renderSummary();renderLB();
+}
+
+function renderAdminEntries(){
+  var list=D.entries.slice();
+  if(currentFilter!=='all')list=list.filter(function(e){return e.status===currentFilter;});
+  if(!list.length){document.getElementById('adminEntries').innerHTML='<div class="empty">No entries in this category.</div>';return;}
+  list.sort(function(a,b){var o={pending:0,confirmed:1,rejected:2};return(o[a.status]||0)-(o[b.status]||0);});
+  var h='<div style="overflow-x:auto;"><table class="lbt"><tr><th>NAME</th><th>EMAIL</th><th>ORDER #</th><th>TIME</th><th>#</th><th>STATUS</th><th>ACTION</th></tr>';
+  list.forEach(function(e){
+    var badge=e.status==='confirmed'?'<span class="badge-conf">✅ CONFIRMED</span>':e.status==='rejected'?'<span class="badge-rej">❌ REJECTED</span>':'<span class="badge-pend">⏳ PENDING</span>';
+    var dt=new Date(e.at),ds=dt.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+dt.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+    var acts=e.status==='pending'
+      ?'<button onclick="setEntryStatus('+e.id+',\'confirmed\')" style="background:#4CAF50;border:none;border-radius:7px;padding:6px 11px;font-family:\'Fredoka One\',cursive;font-size:12px;color:#000;cursor:pointer;margin-right:4px;">✅</button><button onclick="setEntryStatus('+e.id+',\'rejected\')" style="background:#E8001D;border:none;border-radius:7px;padding:6px 11px;font-family:\'Fredoka One\',cursive;font-size:12px;color:#fff;cursor:pointer;">❌</button>'
+      :'<button onclick="setEntryStatus('+e.id+',\'pending\')" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:7px;padding:6px 11px;font-family:\'Fredoka One\',cursive;font-size:12px;color:#fff;cursor:pointer;">↩</button>';
+    h+='<tr><td style="white-space:nowrap;"><strong>'+e.name+'</strong><br><span style="font-size:11px;color:rgba(255,255,255,.4);">'+(e.pay||'—')+'</span></td><td style="font-size:12px;color:rgba(255,255,255,.55);">'+e.email+'</td><td style="font-size:12px;color:rgba(255,255,255,.45);">'+e.order+'</td><td style="font-size:11px;color:rgba(255,255,255,.4);white-space:nowrap;">'+ds+'</td><td style="text-align:center;font-family:\'Lilita One\',cursive;font-size:18px;color:#00BCD4;">'+e.num+'</td><td>'+badge+'</td><td style="white-space:nowrap;">'+acts+'</td></tr>';
+  });
+  document.getElementById('adminEntries').innerHTML=h+'</table></div>';
+}
+
+function doUpdPot(){D.pot=parseFloat(document.getElementById('apot').value)||0;save(D);updPot();renderLB();renderSummary();alert('Pot updated to $'+D.pot);}
+function doSetActualScore(){D.actualScore=parseInt(document.getElementById('actualScore').value)||0;save(D);doRecalc();alert('Score set to '+D.actualScore+'. Scores recalculated!');}
+function doRecalc(){D.entries=D.entries.map(function(e){return Object.assign({},e,{score:scoreEntry(e)});});save(D);renderLB();alert('Scores recalculated!');}
+
+function renderAdmTeams(){
+  var h='';
+  ['east','west','south','midwest'].forEach(function(r){
+    h+='<div style="margin-bottom:14px;"><div style="font-family:\'Righteous\',cursive;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:4px;margin-bottom:7px;">'+r.toUpperCase()+'</div>';
+    D.teams[r].forEach(function(t,i){h+='<div style="display:flex;gap:7px;margin-bottom:5px;"><input type="number" value="'+t.s+'" id="ts_'+r+'_'+i+'" style="width:52px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:7px;padding:7px;color:#fff;font-family:\'Fredoka One\',cursive;font-size:13px;outline:none;"><input type="text" value="'+t.n+'" id="tn_'+r+'_'+i+'" style="flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:7px;padding:7px 10px;color:#fff;font-family:\'Fredoka One\',cursive;font-size:13px;outline:none;"></div>';});
+    h+='</div>';
+  });
+  document.getElementById('ateams').innerHTML=h;
+}
+
+function doSaveTeams(){
+  ['east','west','south','midwest'].forEach(function(r){D.teams[r]=[0,1,2,3].map(function(i){return{s:parseInt(document.getElementById('ts_'+r+'_'+i).value)||0,n:document.getElementById('tn_'+r+'_'+i).value.trim()||'TBD'};});});
+  save(D);renderBracket();renderAdmGames();renderAdmTeams();alert('Teams saved!');
+}
+
+function renderAdmGames(){
+  var T=D.teams,games=[
+    {key:'s16_e1',lbl:'S16 East G1',t1:T.east[0],t2:T.east[1]},{key:'s16_e2',lbl:'S16 East G2',t1:T.east[2],t2:T.east[3]},
+    {key:'s16_w1',lbl:'S16 West G1',t1:T.west[0],t2:T.west[1]},{key:'s16_w2',lbl:'S16 West G2',t1:T.west[2],t2:T.west[3]},
+    {key:'s16_s1',lbl:'S16 South G1',t1:T.south[0],t2:T.south[1]},{key:'s16_s2',lbl:'S16 South G2',t1:T.south[2],t2:T.south[3]},
+    {key:'s16_m1',lbl:'S16 Midwest G1',t1:T.midwest[0],t2:T.midwest[1]},{key:'s16_m2',lbl:'S16 Midwest G2',t1:T.midwest[2],t2:T.midwest[3]},
+    {key:'e8_east',lbl:'E8 East',t1:T.east[0],t2:T.east[2]},{key:'e8_west',lbl:'E8 West',t1:T.west[0],t2:T.west[2]},
+    {key:'e8_south',lbl:'E8 South',t1:T.south[0],t2:T.south[2]},{key:'e8_midwest',lbl:'E8 Midwest',t1:T.midwest[0],t2:T.midwest[2]},
+    {key:'ff1',lbl:'FF G1 East vs West',t1:T.east[0],t2:T.west[0]},{key:'ff2',lbl:'FF G2 South vs Midwest',t1:T.south[0],t2:T.midwest[0]},
+    {key:'champ',lbl:'🏆 CHAMPIONSHIP',t1:T.east[0],t2:T.south[0]}
+  ];
+  var h='';
+  games.forEach(function(g){var cur=D.results[g.key]||'';h+='<div class="agr"><div class="agl">'+g.lbl+'</div><select class="asel" id="ag_'+g.key+'"><option value="">No result</option><option value="'+g.t1.n+'" '+(cur===g.t1.n?'selected':'')+'>'+g.t1.n+'</option><option value="'+g.t2.n+'" '+(cur===g.t2.n?'selected':'')+'>'+g.t2.n+'</option></select><button class="setb" onclick="setRes(\''+g.key+'\')">✓ SET</button></div>';});
+  document.getElementById('agames').innerHTML=h;
+}
+
+function setRes(key){var el=document.getElementById('ag_'+key);if(el){D.results[key]=el.value||null;save(D);alert('Saved!');}}
+
+function showTab(name,btn){
+  document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on');});
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on');});
+  document.getElementById('st-'+name).classList.add('on');
+  btn.classList.add('on');
+  if(name==='live')fetchLive();
+  if(name==='leaderboard')renderLB();
+}
+
+function showAlert(id,type,msg){var el=document.getElementById(id);el.className='alrt '+type+' show';el.textContent=msg;setTimeout(function(){el.classList.remove('show');},5000);}
+
+/* ══════════════════════════════════════════
+   REVIEWS LOGIC
+══════════════════════════════════════════ */
+var ZNK_REVIEWS=[
+  {name:"Marcus T.",stars:5,text:"SneakerheadSzzz always comes through with the heat. Legit service, fast response and the bracket challenge setup was cold. Already locked in for next year.",date:"March 2026",location:"Miami, FL",verified:true},
+  {name:"Kisha R.",stars:5,text:"Been rocking with SneakerheadSzzz for a minute now. Every pair legit, no cap. Customer service is top tier — they actually respond.",date:"February 2026",location:"Atlanta, GA",verified:true},
+  {name:"DeShawn W.",stars:5,text:"The bracket challenge was fire. Easy to enter, everything was organized and transparent. SneakerheadSzzz ran it clean. Will be back every year no doubt.",date:"March 2026",location:"Charlotte, NC",verified:true},
+  {name:"Aaliyah M.",stars:5,text:"From the packaging to the product everything screams quality. You can tell SneakerheadSzzz genuinely cares about the culture. Support real ones.",date:"January 2026",location:"Houston, TX",verified:true},
+  {name:"Trey B.",stars:4,text:"Solid experience overall. Order came fast and everything was exactly as described. Only reason it's 4 stars is I missed my size — gotta be faster lol.",date:"February 2026",location:"Chicago, IL",verified:true},
+  {name:"Simone J.",stars:5,text:"Entered the Sweet 16 challenge and the whole vibe was smooth. Love what SneakerheadSzzz is building for the sneaker community. Keep going!",date:"March 2026",location:"New Orleans, LA",verified:false}
+];
+var znkSelectedStars=0;
+
+function znkEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function znkStars(count,total,cls){var h='';for(var i=1;i<=(total||5);i++){h+='<span class="'+cls+(i<=count?'':' empty')+'">★</span>';}return h;}
+function znkStats(revs){
+  if(!revs.length)return{avg:'0.0',counts:[0,0,0,0,0]};
+  var t=0,c=[0,0,0,0,0];
+  revs.forEach(function(r){t+=r.stars;c[r.stars-1]++;});
+  return{avg:(t/revs.length).toFixed(1),counts:c};
+}
+
+function znkRenderSummary(){
+  var s=znkStats(ZNK_REVIEWS);
+  document.getElementById('znk-avg-score').textContent=s.avg;
+  document.getElementById('znk-sum-stars').innerHTML=znkStars(Math.round(s.avg),5,'znk-star');
+  document.getElementById('znk-rev-count').textContent=ZNK_REVIEWS.length+(ZNK_REVIEWS.length===1?' Review':' Reviews');
+  var h='';
+  for(var i=5;i>=1;i--){
+    var pct=ZNK_REVIEWS.length?Math.round((s.counts[i-1]/ZNK_REVIEWS.length)*100):0;
+    h+='<div class="znk-bar-row"><span class="znk-bar-lbl">'+i+'★</span><div class="znk-bar-track"><div class="znk-bar-fill" style="width:'+pct+'%"></div></div><span style="min-width:28px;text-align:right;">'+pct+'%</span></div>';
+  }
+  document.getElementById('znk-bar-chart').innerHTML=h;
+}
+
+function znkRenderCards(){
+  var h='';
+  ZNK_REVIEWS.slice().reverse().forEach(function(r){
+    var ini=r.name.split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);
+    h+='<div class="znk-card">'
+      +'<div class="znk-card-top"><div class="znk-card-stars">'+znkStars(r.stars,5,'znk-card-star')+'</div>'+(r.verified?'<span class="znk-verified">Verified</span>':'')+'</div>'
+      +'<p class="znk-card-text">'+znkEsc(r.text)+'</p>'
+      +'<div class="znk-card-footer"><div class="znk-avatar">'+ini+'</div>'
+      +'<div><div class="znk-rev-name">'+znkEsc(r.name)+'</div>'
+      +'<div class="znk-rev-date">'+znkEsc(r.date)+(r.location?' · '+znkEsc(r.location):'')+'</div>'
+      +'</div></div></div>';
+  });
+  document.getElementById('znk-cards').innerHTML=h||'<div class="empty">No reviews yet — be the first!</div>';
+}
+
+document.getElementById('znk-star-picker').addEventListener('click',function(e){
+  if(e.target.classList.contains('znk-star-pick')){
+    znkSelectedStars=parseInt(e.target.getAttribute('data-val'));
+    document.querySelectorAll('.znk-star-pick').forEach(function(s){s.classList.toggle('active',parseInt(s.getAttribute('data-val'))<=znkSelectedStars);});
+  }
+});
+
+function znkSubmit(){
+  var name=document.getElementById('znk-name').value.trim();
+  var loc=document.getElementById('znk-loc').value.trim();
+  var text=document.getElementById('znk-rev-text').value.trim();
+  if(!name){alert('Please enter your name.');return;}
+  if(!znkSelectedStars){alert('Please select a star rating.');return;}
+  if(text.length<10){alert('Please write a little more in your review.');return;}
+  var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var now=new Date();
+  ZNK_REVIEWS.push({name:name,stars:znkSelectedStars,text:text,date:months[now.getMonth()]+' '+now.getFullYear(),location:loc,verified:false});
+  znkRenderSummary();znkRenderCards();
+  document.getElementById('znk-name').value='';
+  document.getElementBy
